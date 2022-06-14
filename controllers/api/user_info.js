@@ -34,8 +34,8 @@ const getUsers = async (req, res) => {
 // Route for signup
 const createUser =
   ([
-    check("first_name", "Please enter valid first name").not().isEmpty(),
-    check("last_name", "Please enter valid last name").not().isEmpty(),
+    check("firstName", "Please enter valid first name").not().isEmpty(),
+    check("lastName", "Please enter valid last name").not().isEmpty(),
     check("phone_number", "Please enter valid phone number")
       .isLength(10)
       .not()
@@ -52,7 +52,7 @@ const createUser =
         errors: errors.array(),
       });
     }
-    const { first_name, last_name, phone_number, email, password } = req.body;
+    const { firstName, lastName, phone_number, email, password } = req.body;
 
     try {
       let user = await Users.findOne({
@@ -65,8 +65,8 @@ const createUser =
         });
       }
       user = await Users.create({
-        first_name,
-        last_name,
+        firstName,
+        lastName,
         phone_number,
         email,
         password,
