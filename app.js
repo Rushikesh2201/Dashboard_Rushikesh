@@ -11,17 +11,26 @@ app.use(express.json());
 
  const response = app.get('/', async(req,res) => {
     try{
-        const message = cron.schedule('*/5 * * * * *',() =>{
-        res.send("Hello Work...")
-        console.log("Hello work" +  new Date())
-       })        
-
+         const message = cron.schedule('*/5 * * * * *',() =>{
+        res.send("Hello Work..." + new Date())
+        console.log("Hello work" +  new Date())  
+       })         
     } 
     catch(err){
         console.log(err);
     }
 });
-                                //s   m h d m w
+
+// const response = app.get('/', (req,res) =>{
+//     try{
+//     res.send("Hello Work...");
+//     }
+//     catch(err){
+//         console.log(err);
+//     }
+// })
+
+//                             // s   m h d m w
 // const message = cron.schedule('*/5 * * * * *',()=>
 // //cron.schedule('00 00 11 * * 0-6', () =>)
 // {
@@ -32,7 +41,7 @@ app.use(express.json());
 //         console.log(err);
 //         }
 //        }) 
-//        message.stop();
+        //message.stop();
        //message.start();     
 
 
