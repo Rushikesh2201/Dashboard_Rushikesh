@@ -19,7 +19,7 @@ app.use(express.json());
     catch(err){
         console.log(err);
     }
-});
+ });
 
 // const response = app.get('/', (req,res) =>{
 //     try{
